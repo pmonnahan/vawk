@@ -1,3 +1,5 @@
+Minimal changes made to https://github.com/cc2qe/vawk in order to make it compatible with python3
+
 vawk
 ====
 
