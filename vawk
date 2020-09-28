@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-import argparse, sys, re
+import argparse, sys, re, io
 from argparse import RawTextHelpFormatter
 from subprocess import Popen, PIPE, STDOUT
 
@@ -253,8 +253,8 @@ def vawk(debug, header, var, info_col, vawk_string, vcf_file):
     
     p = Popen(cmd, stdout=PIPE, stderr=STDOUT)
 
-    for line in iter(p.stdout.readline, str()):
-       print(line.rstrip().decode())
+    for line in io.TextIOWrapper(p.stdout, encoding="utf-8"):
+       print(line.rstrip())
 
     return
 
